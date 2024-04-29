@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react";
-import "./styles.css";
+import "./index.css";
 
 function reducer(state, action) {
   switch (action.type) {
