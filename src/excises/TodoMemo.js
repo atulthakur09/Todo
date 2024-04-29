@@ -1,4 +1,5 @@
 import { useReducer, useState } from "react";
+import "./styles.css";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -27,10 +28,11 @@ export default function TodoReducer() {
   const [title, setTitle] = useState("");
   const [todos, dispatch] = useReducer(reducer, []);
 
+ 
   const handleRemove = (id) => {
     const uConfirm = confirm("Are you sure?");
     if (uConfirm) {
-      dispatch({ type: "REMOVE", payload: ele.id });
+      dispatch({ type: "REMOVE", payload: id }); 
     }
   };
 
@@ -55,7 +57,7 @@ export default function TodoReducer() {
       <h2>TodoApp Memo </h2>
       <h2>Listing Your Todo Task's - {todos.length} </h2>
 
-      {/* <h2>Add Your Todo's Here </h2> */}
+      {todos.length == 0 ? <p>Add Your Todo's Here </p> : "List Of Todos"}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
